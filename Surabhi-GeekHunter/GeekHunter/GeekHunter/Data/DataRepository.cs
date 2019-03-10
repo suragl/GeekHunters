@@ -67,6 +67,9 @@ namespace GeekHunter.Data
             return candidate;
         }
 
-
+        public List<Skill> GetAllSkills()
+        {
+            return _context.Skills.ToList();
+        }
     }
 }
