@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using GeekHunter.Models;
 
-namespace GeekHunter.Models
+namespace GeekHunter.Data
 {
     public class GeekHunterContext : DbContext, IDbContext
     {
