@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace testApi.Models
+namespace GeekHunter.Models
 {
     [Table("Candidate")]
     public class Candidate

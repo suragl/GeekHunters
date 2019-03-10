@@ -3,7 +3,7 @@ using Xunit;
 
 namespace GeekHunterTest
 {
-    public class UnitTest1
+    public class CandidateControllerTest
     {
         [Fact]
         public void Test1()
