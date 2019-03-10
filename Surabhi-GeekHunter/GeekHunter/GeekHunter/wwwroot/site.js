@@ -3,9 +3,38 @@ const skillApiUri = "api/skill";
 let skills = null;
 
 $(document).ready(function () {
+
+    registrationFormValidation();
+
     getSkills();
     getData(0);
+    
 });
+
+function registrationFormValidation() {
+    $('form[id="registerationForm"]').validate({
+        rules: {
+            fname: 'required',
+            lname: 'required',
+            skills: 'required',
+        },
+
+
+        messages: {
+            fname: 'First Name Required',
+            lname: 'Last name required',
+            skills: 'Min one skills selected',
+        },
+
+
+        submitHandler: function (form) {
+            addItem();
+        }
+    });
+
+}
+
+
 
 function getSkills() {
 

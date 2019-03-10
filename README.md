@@ -14,37 +14,37 @@ Using GRS a recruitment agent should be able to:
 
 ## Steps followed for the solution
 * Create a web API project (using ASP.NET Core MVC)
-* Add a model classes.
+* Add model classes.
 * Create the database context 
-* Register the database context (Entity Framework Core to interact with sqlite data base file).
-* Add a candidate controller with very basic logis.
-* Add business logics for filter candidate and put candidates with sill
+* Register the database context (Entity Framework Core to interact with sqlite database file).
+* Add a candidate controller with very basic logic.
+* Add business logic for filter candidate and put candidates with sill
 * Test the web APIs with Postman.
 * Design the basic UI with Jquery and HTML
 * Add bootstrap for better look and feel
 
 ## DB Tables
 Use three tables
-1. Candidate : contains the candidates information
+1. Candidate : contains the candidates' information
 
-| Columnn     | Deatils|
+| Columns       | Deatils|
 | ------------- | ------------- |
-| Id         | Primary Key  |
-| FirstName  | First name of candidate |
-| LastName   | Last name of candidate |
+| Id            | Primary Key  |
+| FirstName     | First name of candidate |
+| LastName      | Last name of candidate |
 
 
 2. Skill :
 
-| Columnn     | Deatils|
+| Columns       | Deatils|
 | ------------- | ------------- |
-| Id         | Primary Key  |
-| Name       | Name of skill |
+| Id            | Primary Key  |
+| Name          | Name of skill |
 
 
 3. CandidateSkillMap : Mapping table between Candidate and Skill
 
-| Columnn     | Deatils|
-| ------------- | ------------- |
-| CandidateRefId         | Fareign Key of Candidate Table  |
-| SkillRefId       | Fareign Key of Skill Table |
+| Columns        | Deatils|
+| -------------  | ------------- |
+| CandidateRefId | Foreign Key of Candidate Table  |
+| SkillRefId     | Foreign Key of Skill Table |
