@@ -15,9 +15,39 @@ namespace GeekHunter.Data
             _context = context;
         }
 
-        public List<Candidate> GetCandidates()
+        public List<Candidate> GetCandidates(int skillId)
         {
-            return _context.Candidates.ToList();
+            List<Candidate> candidates;
+
+            // If skill id is not set send all candidates
+            if (skillId == 0)
+            {
+                candidates = _context.Candidates.ToList();
+            }
+            else 
+            {
+                candidates = (from c in _context.Candidates
+                              join m in _context.CandidateSkillMap
+                              on c.Id equals m.CandidateRefId
+                              where m.SkillRefId == skillId
+                              select new Candidate
+                              {
+                                  Id = c.Id,
+                                  FirstName = c.FirstName,
+                                  LastName = c.LastName
+                              }).ToList();
+            }
+
+            foreach (var cand in candidates)
+            {
+                List<CandidateSkillMap> csMaps = _context.CandidateSkillMap.Where(c => c.CandidateRefId.Equals(cand.Id)).ToList();
+                foreach (var cs in csMaps)
+                {
+                    cand.SkillIds.Add(cs.SkillRefId);
+                }
+            }
+
+            return candidates;
         }
 
         public Candidate AddCandidate(Candidate candidate)
