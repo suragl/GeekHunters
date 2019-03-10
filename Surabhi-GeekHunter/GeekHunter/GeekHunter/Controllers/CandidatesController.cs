@@ -22,21 +22,20 @@ namespace GeekHunter.Controllers
 
         // GET: api/Candidates
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Candidate>>> GetCandidate()
+        public  List<Candidate> GetCandidate()
         {
-            return await _context.Candidates.ToListAsync();
+            return _context.Candidates.ToList();
         }
 
-        
 
         // POST: api/Candidates
         [HttpPost]
-        public async Task<ActionResult<Candidate>> PostCandidate(Candidate candidate)
+        public Candidate PostCandidate(Candidate candidate)
         {
             _context.Candidates.Add(candidate);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
 
-            return CreatedAtAction("GetCandidate", new { id = candidate.Id }, candidate);
+            return candidate;
         }
 
         
