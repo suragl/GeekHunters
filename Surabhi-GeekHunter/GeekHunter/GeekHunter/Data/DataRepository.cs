@@ -52,7 +52,16 @@ namespace GeekHunter.Data
 
         public Candidate AddCandidate(Candidate candidate)
         {
+            candidate.Id = 0;
             _context.Candidates.Add(candidate);
+            _context.SaveChanges();
+
+            foreach (var s in candidate.SkillIds)
+            {
+                var newMap = new CandidateSkillMap { CandidateRefId = candidate.Id, SkillRefId = s };
+                _context.CandidateSkillMap.Add(newMap);
+
+            }
             _context.SaveChanges();
 
             return candidate;
