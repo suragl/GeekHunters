@@ -3,63 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <title>Geek Hunters</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+
     <style>
-        input[type='submit'], button, [aria-label] {
-            cursor: pointer;
+        form label {
+            display: inline-block;
+            width: 100px;
         }
 
-        #spoiler {
-            display: none;
+        form div {
+            margin-bottom: 10px;
         }
 
-        table {
-            font-family: Arial, sans-serif;
-            border: 1px solid;
-            border-collapse: collapse;
+        .error {
+            color: red;
+            margin-left: 5px;
         }
 
-        th {
-            background-color: #0066CC;
-            color: white;
-        }
-
-        td {
-            border: 1px solid;
-            padding: 5px;
+        label.error {
+            display: inline;
         }
     </style>
+
 </head>
 <body>
     <h1>Geek Hunter</h1>
-    <h3>Register A candidate</h3>
-    <form action="javascript:void(0);" method="POST" onsubmit="addItem()">
-        <input type="text" id="add-firstName" placeholder="FirstName"><br />
-        <input type="text" id="add-lastName" placeholder="LastName"><br />
-        <select multiple id="add-skills"></select><br />
+    <div class="container">
+        <H2 type="button" class="btn btn-info" data-toggle="collapse" data-target="#collapseForm">Register A candidate</H2>
+        <div id="collapseForm" class="collapse">
+            <div class="p-3 mb-2 bg-secondary text-white">
 
-        <input type="submit" value="Register">
-    </form>
+                <div class="form-group">
 
-    <h3>Filter Candidates</h3>
-    <select  id="filter-skills">
-        <option value="0" selected="selected">Filter Candidate based on Skill</option>
-    </select>
-    <br />
+                    <form  id="registerationForm" action="javascript:void(0);" method="POST" >
+                        <div>
+                            <label for="fname">First Name:</label>
+                            <input type="text" class="form-control" name="fname" id="add-firstName">
+                        </div>
+                        <div>
+                            <label for="lname">Last Name:</label>
+                            <input type="text" class="form-control" name="lname" id="add-lastName">
+                        </div>
+                        <div>
+                            <label for="skills">Skills:</label>
+                            <select multiple class="form-control" name="skills" id="add-skills"></select>
+                        </div>
+                        <div>
+                            <input type="submit" class="form-control btn btn-success" value="Register">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-3 mb-2 bg-warning text-dark">
+        <h3>Filter Candidates</h3>
+
+        <select id="filter-skills">
+            <option value="0" selected="selected">Filter Candidate based on Skill</option>
+        </select>
+        <br />
+    </div>
     <h3>List of Candidates</h3>
-
-    <table>
+    <table class="table table-hover table-dark">
         <tr>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Skills</th>
-
         </tr>
         <tbody id="candidateTable"></tbody>
     </table>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-            crossorigin="anonymous"></script>
     <script src="site.js"></script>
+
 </body>
 </html>

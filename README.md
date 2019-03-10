@@ -21,6 +21,7 @@ Using GRS a recruitment agent should be able to:
 * Add business logics for filter candidate and put candidates with sill
 * Test the web APIs with Postman.
 * Design the basic UI with Jquery and HTML
+* Add bootstrap for better look and feel
 
 ## DB Tables
 Use three tables
