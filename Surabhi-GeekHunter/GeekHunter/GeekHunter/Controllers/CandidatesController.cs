@@ -23,9 +23,9 @@ namespace GeekHunter.Controllers
 
         // GET: api/Candidates
         [HttpGet]
-        public  List<Candidate> GetCandidate()
+        public  List<Candidate> GetCandidate(int skillId)
         {
-            return _data.GetCandidates();
+            return _data.GetCandidates(skillId);
         }
 
 

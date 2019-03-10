@@ -12,9 +12,14 @@ Using GRS a recruitment agent should be able to:
   - view all candidates
   - filter candidates by technology
 
-## Technologies Used for the solution
-* Create web APIs with ASP.NET Core MVC
-* Entity Framework Core to interact with sqlite data base file
+## Steps followed for the solution
+* Create a web API project (using ASP.NET Core MVC)
+* Add a model classes.
+* Create the database context 
+* Register the database context (Entity Framework Core to interact with sqlite data base file).
+* Add a candidate controller with very basic logis.
+* Add business logics for filter candidate and put candidates with sill
+* Test the web APIs with Postman.
 
 ## DB Tables
 Use three tables
