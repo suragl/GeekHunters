@@ -14,18 +14,18 @@ namespace GeekHunter.Controllers
     [ApiController]
     public class CandidatesController : ControllerBase
     {
-        private readonly GeekHunterContext _context;
+        private readonly DataRepository _data;
 
         public CandidatesController(GeekHunterContext context)
         {
-            _context = context;
+            _data = new DataRepository(context);
         }
 
         // GET: api/Candidates
         [HttpGet]
         public  List<Candidate> GetCandidate()
         {
-            return _context.Candidates.ToList();
+            return _data.GetCandidates();
         }
 
 
@@ -33,12 +33,7 @@ namespace GeekHunter.Controllers
         [HttpPost]
         public Candidate PostCandidate(Candidate candidate)
         {
-            _context.Candidates.Add(candidate);
-            _context.SaveChanges();
-
-            return candidate;
+            return _data.AddCandidate(candidate);
         }
-
-        
     }
 }
